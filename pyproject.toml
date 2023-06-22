@@ -11,6 +11,7 @@ repository = "https://github.com/BezrezenTLNH/python-project-50"
 python = "^3.10"
 flask = "^2.3.2"
 flake8 = "^6.0.0"
+pytest-cov = "^4.1.0"
 
 [tool.poetry.scripts]
 gendiff = "gendiff.scripts.gendiff:main"

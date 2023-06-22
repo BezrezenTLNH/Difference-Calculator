@@ -2,12 +2,20 @@ import argparse
 import json
 
 
-def main():
-    parser = argparse.ArgumentParser(description='Compares two configuration files and shows a difference.')
+def gendiff():
+    parser = argparse.ArgumentParser(
+        description='Compares two configuration files and shows a difference.'
+    )
     parser.add_argument('integers', metavar='first_file', type=str)
     parser.add_argument('integers', metavar='second_file', type=str)
-    parser.add_argument('-f', '--format', metavar='FORMAT', help='set format of output')
+    parser.add_argument('-f', '--format',
+                        metavar='FORMAT', help='set format of output')
     args = parser.parse_args()
+
+
+def main():
+    result = generate_diff('file1.json', 'file2.json')
+    print(result)
 
 
 def generate_diff(file_path1, file_path2):

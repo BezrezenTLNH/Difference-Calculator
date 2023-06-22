@@ -4,7 +4,7 @@ install:
 test:
 	poetry run pytest
 
-selfcheck:
+check:
 	poetry check
 
 lint:
@@ -12,4 +12,7 @@ lint:
 
 build: check
 	poetry build
+
+lint:
+	poetry run flake8 gendiff
 
