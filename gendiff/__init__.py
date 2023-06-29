@@ -1,3 +1,3 @@
-print('__init__gendiff')
-
-__all__ = ['gendiff']
+__all__ = (
+    'generate_diff'
+)
