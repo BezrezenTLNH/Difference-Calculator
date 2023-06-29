@@ -13,6 +13,12 @@ lint:
 selfcheck:
 	poetry check
 
+publish:
+	poetry publish --dry-run
+
+package-install:
+	python3 -m pip install --user dist/*.whl
+
 check: selfcheck test lint
 
 build: check
