@@ -1,12 +1,5 @@
-from gendiff.gendiff import generate_diff
-import pytest
+from ..gendiff import generate_diff
 
-
-@pytest.fixture
-def test_generate_diff():
-    file1 = 'tests/fixtures/file1.json'
-    file2 = 'tests/fixtures/file2.json'
-    test_file = generate_diff(file1, file2)
-    assert isinstance(str, test_file)
-    assert test_file.startswith('{')
-    assert test_file.endswith('}')
+diff = generate_diff('../tests/fixtures/file1.json',
+                     '../tests/fixtures/file2.json')
+print(diff)
