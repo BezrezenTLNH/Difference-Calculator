@@ -10,7 +10,7 @@ test-coverage:
 coverage-missing:
 	poetry run pytest --cov-report term-missing --cov=gendiff
 
-flake8:
+lint:
 	pip install flake8
 	poetry run flake8 gendiff
 
