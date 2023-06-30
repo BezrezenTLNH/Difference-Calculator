@@ -23,6 +23,9 @@ package-install:
 package-reinstall:
 	python3 -m pip install --force-reinstall --user dist/hexlet_code-0.1.0-py3-none-any.whl
 
+coverage:
+	poetry add pytest-cov
+
 check: selfcheck test lint
 
 build:
