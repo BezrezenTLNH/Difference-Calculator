@@ -12,6 +12,7 @@ python = "^3.10"
 flask = "^2.3.2"
 flake8 = "^6.0.0"
 pytest-cov = "^4.1.0"
+pyyaml = "^6.0"
 
 [tool.poetry.scripts]
 gendiff = "gendiff.scripts.diff:main"
