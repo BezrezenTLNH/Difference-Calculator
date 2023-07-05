@@ -1,4 +1,5 @@
 from gendiff.parser import parser
+from gendiff.get_diff import get_diff
 
 
 def generate_diff(file_path1, file_path2):
