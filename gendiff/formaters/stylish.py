@@ -14,9 +14,6 @@ def stringify(value, level=1):
     if isinstance(value, str):
         return value
 
-    if value is None:
-        return ''
-
     if isinstance(value, bool):
         return 'true' if value else 'false'
 
