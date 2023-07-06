@@ -14,8 +14,8 @@ def stringify(value, level=1):
     if isinstance(value, str):
         return value
 
-    if isinstance(value, bool):
-        return 'true' if value else 'false'
+    # if isinstance(value, bool):
+    #     return 'true' if value else 'false'
 
     if isinstance(value, dict):
         for k, v in value.items():
@@ -47,6 +47,7 @@ def make_stylish(object, level=0):
         elif types == 'changed':
             result += f'{indent}{symbols["added"]}{k}: '
             result += f'{stringify(v.get("old_value"), level + 1)}\n'
+            result += f'{indent}{symbols["removed"]}{k}: '
             result += f'{stringify(v.get("new_value"), level + 1)}\n'
 
         elif types == 'dictionary':
