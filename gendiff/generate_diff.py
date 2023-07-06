@@ -1,5 +1,4 @@
 from gendiff.parser import parser
-from gendiff.get_diff import get_diff
 
 
 def generate_diff(file_path1, file_path2):
@@ -24,4 +23,3 @@ def generate_diff(file_path1, file_path2):
             result += f'  + {k}: {data2[k]}\n'
 
     return str(result).lower() + '}'
-
