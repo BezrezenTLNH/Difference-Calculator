@@ -14,8 +14,8 @@ def stringify(value, level=1):
     if isinstance(value, str):
         return value
 
-    # if isinstance(value, bool):
-    #     return 'true' if value else 'false'
+    if isinstance(value, bool):
+        return 'true' if value else 'false'
 
     if isinstance(value, dict):
         for k, v in value.items():
