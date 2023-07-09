@@ -1,8 +1,3 @@
-from parser import parser
-data1 = parser('tests/fixtures/file1_stylish.json')
-data2 = parser('tests/fixtures/file2_stylish.json')
-
-
 def create_and_get_diff(old_data, new_data):
     keys = sorted(old_data.keys() | new_data.keys())
     result = dict()
@@ -14,24 +9,28 @@ def create_and_get_diff(old_data, new_data):
                 'value': new_data[k],
                 'children': None
             }
+
         elif k not in new_data:
             result[k] = {
                 'type': 'removed',
                 'value': old_data[k],
                 'children': None
             }
+
         elif old_data[k] == new_data[k]:
             result[k] = {
                 'type': 'untouched',
                 'value': old_data[k],
                 'children': None
             }
+
         elif isinstance(old_data[k], dict) and isinstance(new_data[k], dict):
             result[k] = {
                 'type': 'dictionary',
                 'value': None,
                 'children': create_and_get_diff(old_data[k], new_data[k])
             }
+
         else:
             result[k] = {
                 'type': 'changed',
@@ -41,7 +40,5 @@ def create_and_get_diff(old_data, new_data):
                 },
                 'children': None
             }
+
     return result
-
-
-print(create_and_get_diff(data1, data2))
