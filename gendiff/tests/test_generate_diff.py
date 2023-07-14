@@ -5,8 +5,8 @@ def test_generate_diff():
     data_1 = 'gendiff/tests/fixtures/file1_stylish.json'
     data_2 = 'gendiff/tests/fixtures/file2_stylish.json'
 
-    expected_result_stylish = \
-        open('gendiff/tests/fixtures/test_result_stylish.txt').read()
+    # expected_result_stylish = \
+    #     open('gendiff/tests/fixtures/test_result_stylish.txt').read()
     expected_result_plain = \
         open('gendiff/tests/fixtures/test_result_plain.txt').read()
     expected_result_json = \
