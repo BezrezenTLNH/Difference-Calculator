@@ -15,3 +15,4 @@ def generate_diff(file_path1, file_path2, format_name='stylish'):
         return make_json(formatted_data)
     else:
         return make_stylish(formatted_data)
+    raise Exception(f"You chose the wrong format!: {format}")
