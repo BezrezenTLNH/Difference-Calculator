@@ -26,13 +26,11 @@ def make_plain(data, path=[]):
         path_copy.append(k)
 
         if types == 'added':
-            output += f"Property '{'.'.join(path_copy)}' " \
-                                f"was added with value: " \
-                                f"{get_value(value)}\n"
+            output += f"Property '{'.'.join(path_copy)}'" \
+                      f" was added with value: {get_value(value)}\n"
 
         elif types == 'removed':
-            output += f"Property '{'.'.join(path_copy)}' " \
-                                f"was removed\n"
+            output += f"Property '{'.'.join(path_copy)}' was removed\n"
 
         elif types == 'changed':
             old = get_value(value.get('old_value'))
