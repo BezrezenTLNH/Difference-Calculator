@@ -1,42 +1,43 @@
-def create_and_get_diff(old_data, new_data):
+def create_diff(old_data, new_data):
     keys = sorted(old_data.keys() | new_data.keys())
     result = dict()
 
-    for k in keys:
-        if k not in old_data:
-            result[k] = {
+    for key in keys:
+        if key not in old_data:
+            result[key] = {
                 'type': 'added',
-                'value': new_data[k],
+                'value': new_data[key],
                 'children': None
             }
 
-        elif k not in new_data:
-            result[k] = {
+        elif key not in new_data:
+            result[key] = {
                 'type': 'removed',
-                'value': old_data[k],
+                'value': old_data[key],
                 'children': None
             }
 
-        elif old_data[k] == new_data[k]:
-            result[k] = {
+        elif old_data[key] == new_data[key]:
+            result[key] = {
                 'type': 'untouched',
-                'value': old_data[k],
+                'value': old_data[key],
                 'children': None
             }
 
-        elif isinstance(old_data[k], dict) and isinstance(new_data[k], dict):
-            result[k] = {
+        elif isinstance(old_data[key], dict) \
+                and isinstance(new_data[key], dict):
+            result[key] = {
                 'type': 'dictionary',
                 'value': None,
-                'children': create_and_get_diff(old_data[k], new_data[k])
+                'children': create_diff(old_data[key], new_data[key])
             }
 
         else:
-            result[k] = {
+            result[key] = {
                 'type': 'changed',
                 'value': {
-                    'old_value': old_data[k],
-                    'new_value': new_data[k]
+                    'old_value': old_data[key],
+                    'new_value': new_data[key]
                 },
                 'children': None
             }

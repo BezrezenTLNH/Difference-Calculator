@@ -18,23 +18,23 @@ def get_value(value):
 def make_plain(data, path=[]):
     output = ''
 
-    for k, v in data.items():
-        types = v.get('type')
-        value = v.get('value')
-        children = v.get('children')
+    for key, value in data.items():
+        types = value.get('type')
+        values = value.get('value')
+        children = value.get('children')
         path_copy = path.copy()
-        path_copy.append(k)
+        path_copy.append(key)
 
         if types == 'added':
             output += f"Property '{'.'.join(path_copy)}'" \
-                      f" was added with value: {get_value(value)}\n"
+                      f" was added with value: {get_value(values)}\n"
 
         elif types == 'removed':
             output += f"Property '{'.'.join(path_copy)}' was removed\n"
 
         elif types == 'changed':
-            old = get_value(value.get('old_value'))
-            new = get_value(value.get('new_value'))
+            old = get_value(values.get('old_value'))
+            new = get_value(values.get('new_value'))
             output += f"Property '{'.'.join(path_copy)}' was updated." \
                       f" From {old} to {new}\n"
 
