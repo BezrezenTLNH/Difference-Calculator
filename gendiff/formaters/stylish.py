@@ -1,7 +1,7 @@
 import json
 
 
-symbols = {
+SYMBOLS = {
     'added': '  + ',
     'removed': '  - ',
     'untouched': '    '
@@ -35,24 +35,24 @@ def make_stylish(object_dict, level=0):
     level += 1
 
     for key, value in object_dict.items():
-        indent = symbols['untouched'] * (level - 1)
+        indent = SYMBOLS['untouched'] * (level - 1)
         types = value.get('type')
         values = value.get('value')
         children = value.get('children')
 
         if types == 'added' or types == 'removed'\
                 or types == 'untouched':
-            result += f'{indent}{symbols[types]}{key}: '
+            result += f'{indent}{SYMBOLS[types]}{key}: '
             result += f'{stringify(values, level+1)}\n'
 
         elif types == 'changed':
-            result += f'{indent}{symbols["removed"]}{key}: '
+            result += f'{indent}{SYMBOLS["removed"]}{key}: '
             result += f'{stringify(values.get("old_value"), level + 1)}\n'
-            result += f'{indent}{symbols["added"]}{key}: '
+            result += f'{indent}{SYMBOLS["added"]}{key}: '
             result += f'{stringify(values.get("new_value"), level + 1)}\n'
 
         elif types == 'dictionary':
-            result += f'{indent}{symbols["untouched"]}{key}: '
+            result += f'{indent}{SYMBOLS["untouched"]}{key}: '
             result += f'{make_stylish(children, level)}\n'
     result += f'{indent}}}'
     return result
