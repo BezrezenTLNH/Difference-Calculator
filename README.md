@@ -1,6 +1,6 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/BezrezenTLNH/python-project-50/workflows/hexlet-check/badge.svg)](https://github.com/BezrezenTLNH/python-project-50/actions)
-[![Python CI](https://github.com/BezrezenTLNH/python-project-50/workflows/Python_CI.yml/badge.svg)](https://github.com/BezrezenTLNH/python-project-50/workflows/Python_CI.yml)
+[![Python CI](https://github.com/BezrezenTLNH/python-project-50/workflows/Python_CI.yml/badge.svg)](https://github.com/BezrezenTLNH/python-project-50/actions/workflows/Python_CI.yml)
 ### Code Climate maintainability
 [![Maintainability](https://api.codeclimate.com/v1/badges/47159c5984cb798b8c74/maintainability)](https://codeclimate.com/github/BezrezenTLNH/python-project-50/maintainability)
 ### Test coverage
