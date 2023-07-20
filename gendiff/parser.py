@@ -3,13 +3,26 @@ import yaml
 import argparse
 
 
-def parser(path):
-    if path.endswith('.yml') or path.endswith('.yaml'):
-        data = yaml.safe_load(open(path))
+def get_format(path):
+    return path.split('.')[1]
 
-    elif path.endswith('.json'):
-        data = json.load(open(path))
-    return data
+
+def open_json(path):
+    return json.load(open(path))
+
+
+def open_yaml(path):
+    return yaml.safe_load(open(path))
+
+
+def parser(path):
+    format = get_format(path)
+    if format == 'yml' or format == 'yaml':
+        return open_yaml(path)
+    elif format == 'json':
+        return open_json(path)
+    else:
+        raise Exception('This file format is supported')
 
 
 def parse_args():
